@@ -1,93 +1,61 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+'use strict';
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {ScrollView, StyleSheet, Text, useColorScheme, View} from 'react-native';
+const {XR} = require('@callstack/react-native-visionos');
+const {Alert, Button, StyleSheet, Text, View} = require('react-native');
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const OpenXRSession = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+  const openXRSession = async () => {
+    try {
+      if (!XR.supportsMultipleScenes) {
+        Alert.alert('Error', 'Multiple scenes are not supported');
+        return;
+      }
+      await XR.requestSession('TestImmersiveSpace');
+      setIsOpen(true);
+    } catch (e: any) {
+      Alert.alert('Error', e?.message);
+      setIsOpen(false);
+    }
+  };
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+  const closeXRSession = async () => {
+    if (isOpen) {
+      await XR.endSession();
+    }
+  };
+
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Is XR session open: {isOpen}</Text>
+      <Button title="Open XR Session" onPress={openXRSession} />
+      <Button title="Close XR Session" onPress={closeXRSession} />
     </View>
   );
-}
-
-function App(): React.JSX.Element {
-  return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic">
-      <Header />
-      <View>
-        <Section title="Step One">
-          Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-          screen and then come back to see your edits.
-        </Section>
-        <Section title="See Your Changes">
-          <ReloadInstructions />
-        </Section>
-        <Section title="Debug">
-          <DebugInstructions />
-        </Section>
-        <Section title="Learn More">
-          Read the docs to discover what to do next:
-        </Section>
-        <LearnMoreLinks />
-      </View>
-    </ScrollView>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
+  title: {
+    fontSize: 30,
+    margin: 10,
+    textAlign: 'center',
   },
 });
 
-export default App;
+exports.title = 'XR';
+exports.description = 'Spatial experiences';
+exports.examples = [
+  {
+    title: 'Open XR Session',
+    render() {
+      return <OpenXRSession />;
+    },
+  },
+];
