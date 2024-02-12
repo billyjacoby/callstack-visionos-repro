@@ -1649,16 +1649,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@callstack/out-of-tree-platforms@npm:0.73.4":
-  version: 0.73.4
-  resolution: "@callstack/out-of-tree-platforms@npm:0.73.4"
-  checksum: 10c0/0292ab0b07364405102a12dcc36df2e7c2f33c2690ed93f3801756c696a42a9c4e2f802ef6be2cd29c4e82f266d7483b79e47f3becef09e68928da77e0a79fc0
+"@callstack/out-of-tree-platforms@npm:0.73.4-1":
+  version: 0.73.4-1
+  resolution: "@callstack/out-of-tree-platforms@npm:0.73.4-1"
+  checksum: 10c0/ea655d38cad9a59af683b450ef3e72642311f19ab48191a9edca5bb61c31a1bd04300f6ef4ef6a0d3db240f003a3129eccdacec2b9a10f7fe9270ce89f63809a
   languageName: node
   linkType: hard
 
-"@callstack/react-native-visionos@npm:0.73.4":
-  version: 0.73.4
-  resolution: "@callstack/react-native-visionos@npm:0.73.4"
+"@callstack/react-native-visionos@npm:0.73.4-1":
+  version: 0.73.4-1
+  resolution: "@callstack/react-native-visionos@npm:0.73.4-1"
   dependencies:
     "@jest/create-cache-key-function": "npm:^29.6.3"
     "@react-native-community/cli": "npm:13.5.1"
@@ -1703,7 +1703,7 @@ __metadata:
     react: 18.2.0
   bin:
     react-native-visionos: cli.js
-  checksum: 10c0/0225936728b3ddcb2701c67c76ba132e42e2d799d88caac92c856ee49e1c142074d23fa614415e8c20329902229f607801574e2e80a950d676c671662db45fcd
+  checksum: 10c0/41fc7aab7acdb3f7da6e499d0c889a184d001d52e21de55d6314ccca0a2783e4e79d63208b057832df2e0e0496c497df193f4f9aa21dc59375991a807944dcb3
   languageName: node
   linkType: hard
 
@@ -8541,8 +8541,8 @@ __metadata:
     "@babel/core": "npm:^7.20.0"
     "@babel/preset-env": "npm:^7.20.0"
     "@babel/runtime": "npm:^7.20.0"
-    "@callstack/out-of-tree-platforms": "npm:0.73.4"
-    "@callstack/react-native-visionos": "npm:0.73.4"
+    "@callstack/out-of-tree-platforms": "npm:0.73.4-1"
+    "@callstack/react-native-visionos": "npm:0.73.4-1"
     "@react-native/babel-preset": "npm:0.73.21"
     "@react-native/eslint-config": "npm:0.73.2"
     "@react-native/metro-config": "npm:0.73.5"
