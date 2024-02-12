@@ -1,13 +1,14 @@
 'use strict';
 
 import React from 'react';
-import {useWindowDimensions} from 'react-native';
+import {useWindowDimensions} from '@callstack/react-native-visionos';
 const {XR} = require('@callstack/react-native-visionos');
 const {Alert, Button, StyleSheet, Text, View} = require('react-native');
 
 const OpenXRSession = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const {width} = useWindowDimensions();
+  const {width, height} = useWindowDimensions();
+  console.log('🪵 | OpenXRSession | height:', height);
   console.log('🪵 | OpenXRSession | width:', width);
   console.log('🪵 | OpenXRSession | isOpen:', isOpen);
 
